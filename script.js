@@ -6,6 +6,10 @@ fetch(url)
     const list = document.getElementById("mentor-list");
 
     data.forEach((mentor) => {
+      if (!mentor.profileImageUrl || mentor.profileImageUrl.trim() === "") {
+        return;
+      }
+
       const card = document.createElement("div");
       card.className = "card";
 
@@ -15,7 +19,6 @@ fetch(url)
 
       const name = document.createElement("p");
       name.textContent = mentor.name;
-      
 
       card.appendChild(img);
       card.appendChild(name);
